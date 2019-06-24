@@ -27,9 +27,9 @@ $wsh=ABSOLUTE_DIR($wsh);
 
 my $populations="/mnt/ilustre/centos7users/dna/.env/stacks-2.2/bin/populations";
 open SH,">$wsh/pulation.sh";
-print SH "$Bin/bin/rtm-gwas-gs --grm --out $out/gsc.out --vcf $vcf \n";
+print SH "$Bin/bin/rtm-gwas-gsc --grm --out $out/gsc.out --vcf $vcf \n";
 print SH "$populations -V $vcf -O $out -M $gro -k -t 8 && ";
-print SH "perl $Bin/bin/result.pl -int $out -out pop.recode.csv ";
+print SH "perl $Bin/bin/result.pl -int $out -out $out/pop.recode.csv ";
 close SH;
 my $job="qsub-slurm.pl --Queue $queue --Resource mem=10G --CPU 8  $wsh/pulation.sh";
 `$job`;
