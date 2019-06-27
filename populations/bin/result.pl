@@ -22,12 +22,12 @@ while(<IN>){
 	next if (/^# Var/);
 	if (/^# Pop/) {
 		my @id=split/\t/;
-		print OUT "PopID\t$id[1]\t$id[2]\t$id[8]\t$id[11]\t$id[14]\t$id[18]\t$id[20]\n";
+		print OUT "PopID\t$id[1]\t$id[2]\t$id[8]\t$id[11]\t$id[14]\t$id[18]\t$id[20]\t$id[23]\n";
 	}elsif (/^# All positio/) {
 		last;
 	}else{
 		my @id=split/\t/;
-		print OUT "$id[0]\t$id[1]\t$id[2]\t$id[8]\t$id[11]\t$id[14]\t$id[18]\t$id[20]\n";
+		print OUT "$id[0]\t$id[1]\t$id[2]\t$id[8]\t$id[11]\t$id[14]\t$id[18]\t$id[20]\t$id[23]\n";
 	}
 }
 close IN;
