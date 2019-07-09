@@ -9,7 +9,7 @@
 
 ### VENN plot
 
-required VennDiagram R package 
+Required INSTALL VennDiagram R package 
  ```r
 > install.packages("VennDiagram")
 > library(VennDiagram)
