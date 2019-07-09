@@ -14,3 +14,7 @@ Required INSTALL VennDiagram R package
 > install.packages("VennDiagram")
 > library(VennDiagram)
 ```
+#### examples
+
+![venn 1](VENN/Fig/0001.jpg "venn1")
+![venn 2](VENN/Fig/0002.jpg "venn2")
