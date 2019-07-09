@@ -7,7 +7,7 @@ my %opts;
 GetOptions (\%opts,"f=s","l=s","o=s","w=i","h=i","ls=f","ns=f");
 
 my $usage = <<"USAGE";
-        Program : $0
+        contact:czheluo\@gmail.com
         Discription: plot venn for differently expressed genes.
         Usage:perl $0 [options]
                 -f      files     a,b,c
