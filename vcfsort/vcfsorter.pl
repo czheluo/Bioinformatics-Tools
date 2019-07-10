@@ -2,33 +2,17 @@
 use strict;
 use warnings;
 
-######################################################
-# vcfsorter.pl
-#
-# Copyright (C) 2011 German Gaston Leparc
-#
-# sorts VCF by reference genome
-#
-# usage:
-#
-# vcfsorter.pl genome.dict myvcf.file > mynewvcf.file
-#
-######################################################
-
 my $usage = <<EOF;
-sorts VCF by reference genome
+sorts VCF by any chromesome name you defined
 
 usage:
 
-vcfsorter.pl genome.dict myvcf > mynewvcf.file 2>STDERR
+perl vcfsorter.pl ref.dict pop.sort.vcf >pop.pop.vcf 2>STDERR
+
 EOF
-
-
 my $dict_file = $ARGV[0];
 my $vcf_file = $ARGV[1];
-
 die "\nERROR: missing an argument!\n\n$usage" if (@ARGV < 2);
-
 
 #---------------------------------------- LOAD IN FASTA DICT INTO MEMORY
 open(DICT,$dict_file) or die "Can't open $dict_file!\n";
@@ -45,14 +29,12 @@ if($_=~ /\@SQ/)
 	}
 }
 close(DICT);
-
 #---------------------------------------- PARSE VCF FILE & OUTPUT SORTED VCF
 
 open(VCF,$vcf_file) or die "Can't open $vcf_file!\n";
 
 my %vcf_hash;
 my $header;
-
 while(<VCF>)
 {
 if($_=~/^#/){ $header .= $_; next; } # store header and comment fields
@@ -63,11 +45,8 @@ my $contig = $data[0]; #CHROM
 my $start = $data[1];  #POS
 my $variant = $data[3]."to".$data[4];  #REF and ALT
 my $line = $_; 
-
 #print $contig,":",$start," ",$variant,"\n";
-
 $vcf_hash{$contig}{$start}{$variant}=$line;
-
 }
 close(VCF);
 
