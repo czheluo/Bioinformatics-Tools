@@ -12,8 +12,7 @@
 
 #### samtools
 * get unique mapped result from bam
-> $ samtools view -q 255 Z.sort.mapped.bam > Z.sort.mapped.bam.uniq.table
-> $ samtools view -c -q 255 -F 0x2 Z.sort.bam >Z.sort.mapped.bam.uniq.table
+> $ samtools view -q 255 Z.sort.mapped.bam > Z.sort.mapped.bam.uniq.table && samtools view -c -q 255 -F 0x2 Z.sort.bam >Z.sort.mapped.bam.uniq.table
 
 ### VENN plot
 
