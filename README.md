@@ -10,6 +10,11 @@
 #### Bowtie
 > $ cd /mnt/ilustre/centos7users/meng.luo/project/yuanjie_MJ20190619038/bowtie/1/ && bowtie -f -n 0 -e 80 -l 18 -a -m 5 --best --strata --al M.clean.1.mapped --un M.clean.1.unmapped M.clean.1.fa /mnt/ilustre/centos7users/meng.luo/project/yuanjie_MJ20190619038/04.bam-sort/Z.sort.mapped.bam.fa M.clean.1.bwt 2> M.clean.1.log
 
+#### samtools
+* get unique mapped result from bam
+> $ samtools view -q 255 Z.sort.mapped.bam > Z.sort.mapped.bam.uniq.table
+> $ samtools view -c -q 255 -F 0x2 Z.sort.bam >Z.sort.mapped.bam.uniq.table
+
 ### VENN plot
 
 Required INSTALL VennDiagram R package 
