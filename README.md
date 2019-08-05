@@ -14,6 +14,10 @@
 * GET STAT RESULT
 > $ paste <(grep "bash" qsub.*.sh) <(grep "reads; of these" qsub.*.e*) <(grep "aligned concordantly exactly" qsub.*.e*) | cut -d ' ' -f3,10,11 | sed 's/qsub.*://g' | sed 's/ /\t/g;s/(//g;s/)//g' | awk -vOFS='\t' 'BEGIN{print "Sample","Total Reads", "Mapped Reads", "Mapped Ratio"}{print $1,$2*2,$3*2,$4}' > map.stat.xls
 
+#### BWA
+* MAPPING
+> $ cd /mnt/ilustre/centos7users/meng.luo/project/yuanjie_MJ20190619038/bwa/1 && bwa mem  -M -a -t 8 -R "@RG\tID:2\tLG:M\tLB:1\tPL:illumina\tSM:M\tPU:run_barcode\tCN:MajorBioDS:reseq" /mnt/ilustre/centos7users/meng.luo/project/yuanjie_MJ20190619038/bwa/1/M.clean.1.fa  /mnt/ilustre/centos7users/meng.luo/project/yuanjie_MJ20190619038/04.bam-sort/Z.sort.mapped.bam.R1.fastq.gz /mnt/ilustre/centos7users/meng.luo/project/yuanjie_MJ20190619038/04.bam-sort/Z.sort.mapped.bam.R2.fastq.gz | samtools view -bS - > /mnt/ilustre/centos7users/meng.luo/project/yuanjie_MJ20190619038/bwa/1/Z.b1.bam
+
 #### samtools
 * get unique mapped result from bam
 > $ samtools view -q 255 Z.sort.mapped.bam > Z.sort.mapped.bam.uniq.table && samtools view -c -q 255 -F 0x2 Z.sort.bam >Z.sort.mapped.bam.uniq.table
