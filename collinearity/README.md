@@ -3,7 +3,7 @@
 
 
 ```linux
-
+$ cd /mnt/ilustre/centos7users/meng.luo/project/RNA/liuhaifang_MJ20171228027/MCScanX/MCScanX/data/demo
 $ gffread -T Brapa_genome_v3.0_genes.gff3 -o ref_genome.gtf
 $gtf2Bed.pl ref_genome.gtf >ref_genome.bed
 $bedtools getfasta -fi ref.fa -bed ref_genome.gtf.bed > ref_genome.gtf.fa 
